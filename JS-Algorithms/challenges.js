@@ -13,7 +13,22 @@ Invoking "readableTime(3690)" should return "01:01:30" (HH:MM:SS)
 ***** */
 
 const readableTime = (seconds) => {
-  // YOUR CODE HERE...
+  const HOURS_IN_SECONDS = 3600;
+  const hours = seconds / HOURS_IN_SECONDS;
+  const roundedHours = Math.floor(hours);
+
+  const min = (hours - roundedHours) * 60;
+  const roundedMin = Math.floor(min);
+
+  const sec = (min - roundedMin) * 60;
+  const roundedSec = Math.round(sec);
+
+  let parsedTime = (String(roundedHours).length === 1) ? `0${roundedHours}` : `${roundedHours}`;
+  parsedTime += (String(roundedMin).length === 1) ? `:0${roundedMin}` : `:${roundedMin}`;
+  parsedTime += (String(roundedSec).length === 1) ? `:0${roundedSec}` : `:${roundedSec}`;
+
+  console.log(parsedTime);
+  return parsedTime;
 };
 
 readableTime(458);
