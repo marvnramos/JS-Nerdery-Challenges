@@ -125,6 +125,7 @@ const digitSum = (n) => {
   n = BigInt(n);
 
   /**
+   * Factorial function
    * n! = n * (n - 1)!
    */
   const factorial = (n) => {
