@@ -65,12 +65,10 @@ Invoking "circularArray(2)" should return "["Island", "Japan", "Israel", "German
 const COUNTRY_NAMES = ["Germany", "Norway", "Island", "Japan", "Israel"];
 
 const circularArray = (index) => {
-  const CIRCULAR_INDEX = (index >= COUNTRY_NAMES.length) ? index - COUNTRY_NAMES.length : index;;
+  let circularIndex = (index % COUNTRY_NAMES.length === 0) ? 0 : index % COUNTRY_NAMES.length;
 
-  const result = COUNTRY_NAMES.slice(CIRCULAR_INDEX)
-  console.log(result);
-  result.push(...COUNTRY_NAMES.slice(0, CIRCULAR_INDEX));
-  console.log(result);
+  const result = COUNTRY_NAMES.slice(circularIndex);
+  result.push(...COUNTRY_NAMES.slice(0, circularIndex));
   return result;
 };
 
@@ -144,7 +142,6 @@ const digitSum = (n) => {
 
   const factorialResult = String(factorial(n));
   const result = factorialResult.split('').reduce((acc, num) => acc + parseInt(num), 0);
-  console.log(result);
   return result;
 };
 
@@ -181,7 +178,6 @@ const fibIndex = (n) => {
 
     if (String(nextFibonacciNum).length === n) flag = false;
   }
-  console.log(`fibonacci: ${fibonnaciSequence}`);
 
   return fibonnaciSequence.length - 1;
 };
