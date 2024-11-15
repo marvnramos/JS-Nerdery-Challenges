@@ -130,11 +130,6 @@ Since 10! === 3628800 and you sum 3 + 6 + 2 + 8 + 8 + 0 + 0
 
 const digitSum = (n) => {
   n = BigInt(n);
-
-  /**
-   * Factorial function
-   * n! = n * (n - 1)!
-   */
   const factorial = (n) => {
     if (n === 0n) return 1n;
     return n * factorial(n - 1n);
@@ -165,10 +160,6 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 ***** */
 
 const fibIndex = (n) => {
-  /**
-   * Fibonacci sequence 🤓☝️
-   * Xn = Xn-1 + Xn-2
-   */
   const fibonnaciSequence = [0, 1];
   let flag = true;
 
