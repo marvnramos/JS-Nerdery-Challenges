@@ -26,11 +26,15 @@ const readableTime = (seconds) => {
   const roundedSec = Math.round(sec);
 
   const getTimeParsed = (...times) => {
-    return times.map(time => {
-      if (String(time).length === 1) return `0${time}`
-      else return `${time}`
-    }).join(':')
-  };
+    let index = 1;
+    return times.reduce((acc, time) => {
+      const timeStr = String(time).padStart(2, '0');
+      acc += index < times.length ? timeStr.padEnd(3, ':') : timeStr;
+      index++;
+      return acc;
+    }, '');
+
+  }
 
   let readableTime = getTimeParsed(roundedHour, roundedMin, roundedSec);
   return readableTime;
